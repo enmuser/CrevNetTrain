@@ -7,10 +7,7 @@ import random
 from torch.autograd import Variable
 from torch.utils.data import DataLoader
 import data_utils
-import numpy as np
-import time
 import pssim.pytorch_ssim as pytorch_ssim
-from skimage.measure import compare_ssim
 from tqdm import trange
 
 parser = argparse.ArgumentParser()
@@ -59,7 +56,7 @@ os.makedirs('%s/gen/' % opt.log_dir, exist_ok=True)
 os.makedirs('%s/plots/' % opt.log_dir, exist_ok=True)
 
 opt.max_step = opt.n_past + opt.n_future + 2
-print("Random Seed: ", opt.seed)
+#print("Random Seed: ", opt.seed)
 random.seed(opt.seed)
 torch.manual_seed(opt.seed)
 torch.cuda.manual_seed_all(opt.seed)
@@ -67,7 +64,7 @@ dtype = torch.cuda.FloatTensor
 opt.data_type = 'sequence'
 # ---------------- load the models  ----------------
 
-print(opt)
+#print(opt)
 
 # ---------------- optimizers ----------------
 opt.optimizer = optim.Adam

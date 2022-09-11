@@ -9,8 +9,8 @@ import torch
 
 matplotlib.use('agg')
 import functools
-from skimage.measure import compare_psnr as psnr_metric
-from skimage.measure import compare_ssim as ssim_metric
+from skimage.metrics import structural_similarity as ssim_metric
+from skimage.metrics import peak_signal_noise_ratio as psnr_metric
 from scipy import signal
 from PIL import Image, ImageDraw
 
